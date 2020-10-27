@@ -98,9 +98,14 @@ public class StringUtil {
      * @return
      */
     public static long getDbIndexByMod(Object obj,int dbCount,int tbCount) {
-        long tbRange = getModValue(obj, tbCount);
+/*        long tbRange = getModValue(obj, tbCount);
         BigDecimal bc = new BigDecimal(tbRange);
         BigDecimal[] results = bc.divideAndRemainder(new BigDecimal(dbCount/tbCount));
+        return (long)results[0].intValue();    */
+
+        long tbRange = getModValue(obj, tbCount);
+        BigDecimal bc = new BigDecimal(tbRange);
+        BigDecimal[] results = bc.divideAndRemainder(new BigDecimal(dbCount));
         return (long)results[0].intValue();
     }
 
